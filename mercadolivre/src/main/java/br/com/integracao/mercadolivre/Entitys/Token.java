@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import lombok.Data;
 
 @Entity
-public @Data class token implements Serializable{
+public @Data class Token implements Serializable{
 	
 	/**
 	 * 
@@ -18,7 +18,7 @@ public @Data class token implements Serializable{
 	private static final long serialVersionUID = -7307650567657994344L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	private String clientId;
 	private String clientSecret;
 	private String redirectUri;

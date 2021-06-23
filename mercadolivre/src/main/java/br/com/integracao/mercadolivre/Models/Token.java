@@ -1,4 +1,4 @@
-package br.com.integracao.mercadolivre.Entitys;
+package br.com.integracao.mercadolivre.Models;
 
 import java.io.Serializable;
 

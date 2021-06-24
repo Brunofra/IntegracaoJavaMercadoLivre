@@ -38,6 +38,7 @@ public class AcessoController {
 		RestTemplate redirect = new RestTemplate();
 		ResponseEntity<String> get = redirect.exchange(acesso.getLinkAutorizacao(), HttpMethod.GET, null, String.class);
 		String code = get.getBody();
+		//
 		HttpHeaders header = new HttpHeaders();
 		header.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 		// header.setAccept(List<MediaType.APPLICATION_JSON>);

@@ -9,33 +9,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-
 @Entity
-@Table (name = "acesso")
-public @Data class Acesso implements Serializable{
-
-	/**
+@Table
+public @Data class Usuarios implements Serializable{/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
-
 	private long id;
 	
+	private String idusuario;
 	
-	private String appId; 
-
+	private String nickName;
 	
-	private String code; 
+	private String password;
 	
+	private String siteStatus;
 	
-	private String redirecionamento;
-	
-	
-	private String senhaUsuario;
-	
-	private String grantType;
-
 }

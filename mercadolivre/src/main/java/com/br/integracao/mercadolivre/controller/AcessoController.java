@@ -22,9 +22,12 @@ import com.br.integracao.mercadolivre.input.AcessoIn;
 import com.br.integracao.mercadolivre.input.Tokenin;
 import com.br.integracao.mercadolivre.models.Acesso;
 import com.br.integracao.mercadolivre.models.Token;
+import com.br.integracao.mercadolivre.models.Usuarios;
 import com.br.integracao.mercadolivre.output.AcessoOut;
+import com.br.integracao.mercadolivre.output.UsuarioOut;
 import com.br.integracao.mercadolivre.repository.AcessoRepository;
 import com.br.integracao.mercadolivre.repository.TokenRepository;
+import com.br.integracao.mercadolivre.repository.UsuariosRepository;
 
 @Controller
 @RequestMapping("/start/*")
@@ -34,7 +37,9 @@ public class AcessoController {
 	private AcessoRepository acesso;
 	@Autowired
 	private TokenRepository token;
-
+	
+	@Autowired
+	private UsuariosRepository user;
 	@GetMapping("/token")
 	@ResponseBody
 
@@ -110,6 +115,38 @@ public class AcessoController {
 			return null;
 		}
 	}
+	
+	@GetMapping("/criacaousuario")
+	public UsuarioOut criacaoUsuario()throws Exception{
+		HttpHeaders header = new HttpHeaders();
+		header.setContentType(MediaType.APPLICATION_JSON);
+		header.add("Authorization", "Bearer APP_USR-2297576782702767-062523-72380ccf11117334065d7d10cac3b319-779973219");
+		Map<String, String> mapa = new HashMap<>();
+		mapa.put("site_id","MLB");
+		HttpEntity<?> entity = new HttpEntity<Object>(mapa, header);
+		RestTemplate rest = new RestTemplate();
+		
+		ResponseEntity<UsuarioOut> response = rest.postForEntity("https://api.mercadolibre.com/users/test_user", entity,UsuarioOut.class);
+		if(response.hasBody()) {
+			UsuarioOut user = new UsuarioOut();
+			
+			user = response.getBody();
+			
+			Usuarios usu = new Usuarios();
+			
+			usu.setIdusuario(user.getIdUsuario());
+			usu.setNickName(user.getNickName());
+			usu.setPassword(user.getPassword());
+			usu.setSiteStatus(user.getSiteStatus());
+			this.user.save(usu);
+			
+			return user;
+		}else {
+			return null;
+		}
+		
+	}
+	
 	
 	
 }

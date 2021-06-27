@@ -20,7 +20,7 @@ public @Data class Usuarios implements Serializable{/**
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private String idusuario;
+	private String idUsuario;
 	
 	private String nickName;
 	

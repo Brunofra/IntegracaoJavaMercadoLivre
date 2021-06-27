@@ -8,4 +8,5 @@ import com.br.integracao.mercadolivre.models.Usuarios;
 public interface UsuariosRepository extends CrudRepository<Usuarios, String>{
 
 	Usuarios findById(long id);
+	Usuarios findByIdUsuario(String user);
 }

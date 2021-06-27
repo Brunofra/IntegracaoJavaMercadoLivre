@@ -76,8 +76,8 @@ public @Data class UsuarioOut {
 	@JsonProperty("seller_reputation")
 	private ReputacaoVendedorOut reputacaoVendedor;
 	
-//	@JsonProperty("buyer_reputation")
-//	private reputacaoCompradorOut reputacaoComprador;
+	@JsonProperty("buyer_reputation")
+	private reputacaoCompradorOut reputacaoComprador;
 	
 	
 	

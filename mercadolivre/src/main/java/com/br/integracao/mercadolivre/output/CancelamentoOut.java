@@ -12,4 +12,7 @@ public class CancelamentoOut {
 	private BigDecimal total;
 	@JsonProperty("paid")
 	private BigDecimal pagamento;
+	
+	@JsonProperty("units")
+	private BigDecimal unidades;
 }

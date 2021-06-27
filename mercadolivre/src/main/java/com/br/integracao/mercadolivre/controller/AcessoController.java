@@ -117,6 +117,7 @@ public class AcessoController {
 	}
 	
 	@GetMapping("/criacaousuario")
+	@ResponseBody
 	public UsuarioOut criacaoUsuario()throws Exception{
 		HttpHeaders header = new HttpHeaders();
 		header.setContentType(MediaType.APPLICATION_JSON);
@@ -134,7 +135,7 @@ public class AcessoController {
 			
 			Usuarios usu = new Usuarios();
 			
-			usu.setIdusuario(user.getIdUsuario());
+			usu.setIdUsuario(user.getIdUsuario());
 			usu.setNickName(user.getNickName());
 			usu.setPassword(user.getPassword());
 			usu.setSiteStatus(user.getSiteStatus());
@@ -146,6 +147,8 @@ public class AcessoController {
 		}
 		
 	}
+	
+	
 	
 	
 	
